@@ -1,23 +1,14 @@
 import React, { useState } from "react";
 
-function Experience() {
-  const [experienceData, setExperienceData] = useState({
-    company: "",
-    startingDate: "",
-    endDate: "",
-    position: "",
-    location: "",
-  });
-
-  console.log(experienceData);
-
-  function handleWorkChange(e) {
-    const { name, value } = e.target;
-    setExperienceData((prevData) => {
-      return { ...prevData, [name]: value };
-    });
-  }
-
+function Experience(props) {
+  const {
+    company,
+    startingDate,
+    endDate,
+    position,
+    location,
+    handleWorkChange,
+  } = props;
   return (
     <div>
       <label>
@@ -26,7 +17,7 @@ function Experience() {
           type="text"
           onChange={handleWorkChange}
           name="company"
-          value={experienceData.company}
+          value={company}
         />
       </label>
       <label>
@@ -35,7 +26,7 @@ function Experience() {
           type="text"
           onChange={handleWorkChange}
           name="startingDate"
-          value={experienceData.startingDate}
+          value={startingDate}
         />
       </label>
       <label>
@@ -44,7 +35,7 @@ function Experience() {
           type="text"
           onChange={handleWorkChange}
           name="endDate"
-          value={experienceData.endDate}
+          value={endDate}
         />
       </label>
       <label>
@@ -53,7 +44,7 @@ function Experience() {
           type="text"
           onChange={handleWorkChange}
           name="position"
-          value={experienceData.position}
+          value={position}
         />
       </label>
       <label>
@@ -62,7 +53,7 @@ function Experience() {
           type="text"
           onChange={handleWorkChange}
           name="location"
-          value={experienceData.location}
+          value={location}
         />
       </label>
     </div>
@@ -80,13 +71,22 @@ export default function WorkExperience(props) {
     location: "",
   });
 
+  console.log(experienceData);
+  function handleWorkChange(e) {
+    const { name, value } = e.target;
+    setExperienceData((prevData) => {
+      return { ...prevData, [name]: value };
+    });
+  }
+
   function handleClick(e) {
     e.preventDefault();
     setExperience((prevState) => {
       return [
         ...experienceList,
         <Experience
-          workExperience={workExperience}
+          experienceData={experienceData}
+          handleWorkChange={handleWorkChange}
           key={experienceList.length + 1}
         />,
       ];
