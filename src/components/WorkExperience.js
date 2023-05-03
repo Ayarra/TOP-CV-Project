@@ -70,8 +70,15 @@ function Experience() {
 }
 
 export default function WorkExperience(props) {
-  const { workExperience } = props;
+  const { workExperience, handleChange } = props;
   const [experienceList, setExperience] = useState([]);
+  const [experienceData, setExperienceData] = useState({
+    company: "",
+    startingDate: "",
+    endDate: "",
+    position: "",
+    location: "",
+  });
 
   function handleClick(e) {
     e.preventDefault();

@@ -1,8 +1,7 @@
 import React from "react";
 
 export default function GeneralInformation(props) {
-  const { fullName, email, phoneNumber, city, state } = props;
-  const { handleChange } = props.data;
+  const { fullName, email, phoneNumber, city, state, handleChange } = props;
 
   return (
     <div>
@@ -17,7 +16,7 @@ export default function GeneralInformation(props) {
       </label>
       <label>
         Email
-        <input type="text" name="email"  value={email} onChange={handleChange} />
+        <input type="text" name="email" value={email} onChange={handleChange} />
       </label>
       <label>
         Phone Number
