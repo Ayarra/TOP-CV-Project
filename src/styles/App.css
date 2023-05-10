@@ -69,3 +69,19 @@ button:hover {
   cursor: pointer;
   transition: all 0.5s;
 }
+
+.addBlock {
+  display: block;
+  margin-left: 10%;
+  border: none;
+  background-color: #166ef1;
+  padding: 20px;
+  width: 80%;
+  color: #ffffff;
+  text-align: center;
+  border: 4px solid #cccccc;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.5s;
+}

@@ -39,7 +39,9 @@ export default function WorkExperience(props) {
     <fieldset className="infoField">
       <legend className="title">Work Experience</legend>
       {experience}
-      <button onClick={handleClick}>Add new Experience</button>
+      <button className="addBlock" onClick={handleClick}>
+        Add new Experience
+      </button>
     </fieldset>
   );
 }
