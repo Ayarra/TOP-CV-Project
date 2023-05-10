@@ -85,6 +85,8 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -125,4 +127,10 @@ table {
 
 * {
   box-sizing: border-box;
+}
+
+input,
+textarea,
+button {
+  font-family: inherit;
 }

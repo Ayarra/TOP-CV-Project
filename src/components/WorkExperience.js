@@ -4,19 +4,36 @@ import ExperienceBlock from "./ExperienceBlock";
 export default function WorkExperience(props) {
   const { workExperience, handleChange, setFormData } = props;
 
-  let experience = workExperience.map((experience) => (
+  // const [experiences, setExperiences] = useState([]);
+
+  let experiences = workExperience.map((experience) => (
     <ExperienceBlock
       key={experience.id}
       id={experience.id}
       experience={experience}
       handleChange={handleChange}
+      handleDelete={handleDelete}
     />
   ));
 
-  function handleClick(e) {
+  function handleDelete(e, id) {
     e.preventDefault();
 
-    // Add new Experience field
+    setFormData((prevData) => {
+      const updatedExperience = prevData.workExperience.filter(
+        (experience) => experience.id !== id
+      );
+      return {
+        ...prevData,
+        workExperience: [...updatedExperience],
+      };
+    });
+  }
+
+  function handleAdd(e) {
+    e.preventDefault();
+
+    // Add new Experience field in formData
     setFormData((prevData) => {
       return {
         ...prevData,
@@ -38,8 +55,8 @@ export default function WorkExperience(props) {
   return (
     <fieldset className="infoField">
       <legend className="title">Work Experience</legend>
-      {experience}
-      <button className="addBlock" onClick={handleClick}>
+      {experiences}
+      <button className="addBlock" onClick={handleAdd}>
         Add new Experience
       </button>
     </fieldset>

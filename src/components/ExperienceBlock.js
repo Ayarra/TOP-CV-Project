@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function ExperienceBlock(props) {
-  const { handleChange, id } = props;
+  const { handleChange, handleDelete, id } = props;
   const { company, position, location, startingDate, endDate } =
     props.experience;
 
@@ -47,7 +47,9 @@ export default function ExperienceBlock(props) {
         value={endDate}
         onChange={(e) => handleChange(e, id)}
       />
-      <button className="deleteButton">Delete</button>
+      <button className="deleteButton" onClick={(e) => handleDelete(e, id)}>
+        Delete
+      </button>
     </div>
   );
 }
