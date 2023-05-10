@@ -1,42 +1,65 @@
 import React, { useState } from "react";
-import Edit from "./components/Edit";
-import Preview from "./components/Preview";
+import CVEdit from "./components/CVEdit";
+import CVPreview from "./components/CVPreview";
+import "./styles/App.css";
 
 function App() {
   const [mode, setMode] = useState(true);
   const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phoneNumber: "",
-    city: "",
-    state: "",
-    workExperice: [],
+    generalInformation: {
+      fullName: "",
+      email: "",
+      phoneNumber: "",
+      city: "",
+      state: "",
+    },
+    workExperience: [],
   });
 
   console.log(formData);
-  function handleMode() {
+  function handleMode(e) {
+    e.preventDefault();
     setMode((prevState) => !prevState);
   }
 
-  function handleChange(e) {
+  function handleChange(e, id) {
     const { name, value } = e.target;
+    console.log(id);
 
     setFormData((prevData) => {
+      const newExperience = prevData.workExperience.map((experience) => {
+        if (experience.id === id) {
+          return { ...experience, [name]: value };
+        } else {
+          return experience;
+        }
+      });
+
       return {
         ...prevData,
-        [name]: value,
+        generalInformation: {
+          ...prevData.generalInformation,
+          [name]: value,
+        },
+        workExperience: [...newExperience],
       };
     });
   }
 
   return (
-    <div>
-      <button onClick={handleMode}>Toggle {mode ? "Preview" : "Edit"}</button>
+    <div className="container">
+      <button className="toggleButton" onClick={handleMode}>
+        Toggle {mode ? "Preview" : "Edit"}
+      </button>
 
       {mode ? (
-        <Edit formData={formData} handleChange={handleChange} />
+        <CVEdit
+          formData={formData}
+          handleChange={handleChange}
+          setFormData={setFormData}
+        />
       ) : (
-        <Preview formData={formData} />
+        <CVPreview formData={formData} />
       )}
     </div>
   );

@@ -1,103 +1,45 @@
 import React, { useState } from "react";
-
-function Experience(props) {
-  const {
-    company,
-    startingDate,
-    endDate,
-    position,
-    location,
-    handleWorkChange,
-  } = props;
-  return (
-    <div>
-      <label>
-        Company name
-        <input
-          type="text"
-          onChange={handleWorkChange}
-          name="company"
-          value={company}
-        />
-      </label>
-      <label>
-        Starting Date{" "}
-        <input
-          type="text"
-          onChange={handleWorkChange}
-          name="startingDate"
-          value={startingDate}
-        />
-      </label>
-      <label>
-        Finish Date
-        <input
-          type="text"
-          onChange={handleWorkChange}
-          name="endDate"
-          value={endDate}
-        />
-      </label>
-      <label>
-        Position
-        <input
-          type="text"
-          onChange={handleWorkChange}
-          name="position"
-          value={position}
-        />
-      </label>
-      <label>
-        Location
-        <input
-          type="text"
-          onChange={handleWorkChange}
-          name="location"
-          value={location}
-        />
-      </label>
-    </div>
-  );
-}
+import ExperienceBlock from "./ExperienceBlock";
 
 export default function WorkExperience(props) {
-  const { workExperience, handleChange } = props;
-  const [experienceList, setExperience] = useState([]);
-  const [experienceData, setExperienceData] = useState({
-    company: "",
-    startingDate: "",
-    endDate: "",
-    position: "",
-    location: "",
-  });
+  const { workExperience, handleChange, setFormData } = props;
 
-  console.log(experienceData);
-  function handleWorkChange(e) {
-    const { name, value } = e.target;
-    setExperienceData((prevData) => {
-      return { ...prevData, [name]: value };
-    });
-  }
+  let experience = workExperience.map((experience) => (
+    <ExperienceBlock
+      key={experience.id}
+      id={experience.id}
+      experience={experience}
+      handleChange={handleChange}
+    />
+  ));
 
   function handleClick(e) {
     e.preventDefault();
-    setExperience((prevState) => {
-      return [
-        ...experienceList,
-        <Experience
-          experienceData={experienceData}
-          handleWorkChange={handleWorkChange}
-          key={experienceList.length + 1}
-        />,
-      ];
+
+    // Add new Experience field
+    setFormData((prevData) => {
+      return {
+        ...prevData,
+        workExperience: [
+          ...prevData.workExperience,
+          {
+            id: workExperience.length + 1,
+            company: "",
+            startingDate: "",
+            endDate: "",
+            position: "",
+            location: "",
+          },
+        ],
+      };
     });
   }
 
   return (
-    <div>
-      <h1>Work Experience</h1>
-      <button onClick={handleClick}>Add work experience</button>
-      {experienceList}
-    </div>
+    <fieldset className="infoField">
+      <legend className="title">Work Experience</legend>
+      {experience}
+      <button onClick={handleClick}>Add new Experience</button>
+    </fieldset>
   );
 }

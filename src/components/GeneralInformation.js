@@ -1,40 +1,55 @@
 import React from "react";
+import "../styles/GeneralInformation.css";
 
 export default function GeneralInformation(props) {
-  const { fullName, email, phoneNumber, city, state, handleChange } = props;
+  const { handleChange } = props;
+  const { fullName, email, phoneNumber, city, state } =
+    props.generalInformation;
 
   return (
-    <div>
-      <label>
-        Full Name
-        <input
-          type="text"
-          name="fullName"
-          value={fullName}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Email
-        <input type="text" name="email" value={email} onChange={handleChange} />
-      </label>
-      <label>
-        Phone Number
-        <input
-          type="text"
-          name="phoneNumber"
-          value={phoneNumber}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        City of residence
-        <input type="text" name="city" value={city} onChange={handleChange} />
-      </label>
-      <label>
-        State
-        <input type="text" name="state" value={state} onChange={handleChange} />
-      </label>
-    </div>
+    <fieldset className="infoField">
+      <legend className="title">General Information</legend>
+
+      <input
+        className="formInput"
+        placeholder="Full Name"
+        type="text"
+        name="fullName"
+        value={fullName}
+        onChange={(e) => handleChange(e)}
+      />
+      <input
+        className="formInput"
+        placeholder="Email"
+        type="text"
+        name="email"
+        value={email}
+        onChange={(e) => handleChange(e)}
+      />
+      <input
+        className="formInput"
+        placeholder="Phone Number"
+        type="text"
+        name="phoneNumber"
+        value={phoneNumber}
+        onChange={(e) => handleChange(e)}
+      />
+      <input
+        className="formInput"
+        placeholder="City of Residence"
+        type="text"
+        name="city"
+        value={city}
+        onChange={(e) => handleChange(e)}
+      />
+      <input
+        className="formInput"
+        placeholder="State of Residence"
+        type="text"
+        name="state"
+        value={state}
+        onChange={handleChange}
+      />
+    </fieldset>
   );
 }
