@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function ExperienceBlock(props) {
-  const { handleChange, handleDelete, id } = props;
+  const { handleChangeWorkExperience, handleDelete, id } = props;
   const {
     company,
     position,
@@ -19,7 +19,7 @@ export default function ExperienceBlock(props) {
         type="text"
         name="company"
         value={company}
-        onChange={(e) => handleChange(e, id)}
+        onChange={(e) => handleChangeWorkExperience(e, id)}
       />
       <input
         className="formInput"
@@ -27,7 +27,7 @@ export default function ExperienceBlock(props) {
         type="text"
         name="position"
         value={position}
-        onChange={(e) => handleChange(e, id)}
+        onChange={(e) => handleChangeWorkExperience(e, id)}
       />
       <input
         className="formInput"
@@ -35,7 +35,7 @@ export default function ExperienceBlock(props) {
         type="text"
         name="location"
         value={location}
-        onChange={(e) => handleChange(e, id)}
+        onChange={(e) => handleChangeWorkExperience(e, id)}
       />
       <input
         className="formInput"
@@ -43,7 +43,7 @@ export default function ExperienceBlock(props) {
         type="text"
         name="startingDate"
         value={startingDate}
-        onChange={(e) => handleChange(e, id)}
+        onChange={(e) => handleChangeWorkExperience(e, id)}
       />
       <input
         className="formInput"
@@ -51,7 +51,7 @@ export default function ExperienceBlock(props) {
         type="text"
         name="endDate"
         value={endDate}
-        onChange={(e) => handleChange(e, id)}
+        onChange={(e) => handleChangeWorkExperience(e, id)}
       />
       <textarea
         className="formInput formTextArea "
@@ -59,7 +59,7 @@ export default function ExperienceBlock(props) {
         type="text"
         name="responsabilities"
         value={responsabilities}
-        onChange={(e) => handleChange(e, id)}
+        onChange={(e) => handleChangeWorkExperience(e, id)}
       />
       <button className="deleteButton" onClick={(e) => handleDelete(e, id)}>
         Delete

@@ -2,14 +2,14 @@ import React from "react";
 import ExperienceBlock from "./ExperienceBlock";
 
 export default function WorkExperience(props) {
-  const { workExperience, handleChange, setFormData } = props;
+  const { workExperience, handleChangeWorkExperience, setFormData } = props;
 
   let experiences = workExperience.map((experience) => (
     <ExperienceBlock
       key={experience.id}
       id={experience.id}
       experience={experience}
-      handleChange={handleChange}
+      handleChangeWorkExperience={handleChangeWorkExperience}
       handleDelete={handleDelete}
       setFormData={setFormData}
     />

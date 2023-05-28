@@ -15,6 +15,8 @@ function App() {
     },
     workExperience: [],
     education: [],
+    skills: "",
+    interests: "",
   });
 
   console.log(formData);
@@ -23,9 +25,21 @@ function App() {
     setMode((prevState) => !prevState);
   }
 
-  function handleChange(e, id) {
+  function handleChangeGeneralInformation(e) {
     const { name, value } = e.target;
+    setFormData((prevData) => {
+      return {
+        ...prevData,
+        generalInformation: {
+          ...prevData.generalInformation,
+          [name]: value,
+        },
+      };
+    });
+  }
 
+  function handleChangeWorkExperience(e, id) {
+    const { name, value } = e.target;
     setFormData((prevData) => {
       const newExperience = prevData.workExperience.map((experience) => {
         if (experience.id === id) {
@@ -34,7 +48,17 @@ function App() {
           return experience;
         }
       });
+      return {
+        ...prevData,
+        workExperience: [...newExperience],
+      };
+    });
+  }
 
+  function handleChangeEducation(e, id) {
+    console.log("he");
+    const { name, value } = e.target;
+    setFormData((prevData) => {
       const newEducation = prevData.education.map((education) => {
         if (education.id === id) {
           return { ...education, [name]: value };
@@ -42,15 +66,22 @@ function App() {
           return education;
         }
       });
-
       return {
         ...prevData,
-        generalInformation: {
-          ...prevData.generalInformation,
-          [name]: value,
-        },
-        workExperience: [...newExperience],
         education: [...newEducation],
+      };
+    });
+  }
+
+  function handleChange(e, id) {
+    const { name, value } = e.target;
+
+    setFormData((prevData) => {
+      return {
+        ...prevData,
+
+        [name]: value,
+        // interests: value,
       };
     });
   }
@@ -65,6 +96,9 @@ function App() {
         <CVEdit
           formData={formData}
           handleChange={handleChange}
+          handleChangeGeneralInformation={handleChangeGeneralInformation}
+          handleChangeWorkExperience={handleChangeWorkExperience}
+          handleChangeEducation={handleChangeEducation}
           setFormData={setFormData}
         />
       ) : (

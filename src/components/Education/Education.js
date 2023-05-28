@@ -2,14 +2,14 @@ import React from "react";
 import EducationBlock from "./EducationBlock";
 
 export default function Education(props) {
-  const { education, handleChange, setFormData } = props;
+  const { education, handleChangeEducation, setFormData } = props;
 
   let educations = education.map((education) => (
     <EducationBlock
       key={education.id}
       id={education.id}
       education={education}
-      handleChange={handleChange}
+      handleChangeEducation={handleChangeEducation}
       handleDeleteEducation={handleDeleteEducation}
       setFormData={setFormData}
     />
@@ -17,7 +17,6 @@ export default function Education(props) {
 
   function handleDeleteEducation(e, id) {
     e.preventDefault();
-    console.log(id);
     setFormData((prevData) => {
       const updatedEducation = prevData.education.filter(
         (education) => education.id !== id

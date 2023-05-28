@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/GeneralInformation.css";
 
 export default function GeneralInformation(props) {
-  const { handleChange } = props;
+  const { handleChangeGeneralInformation } = props;
   const { fullName, email, phoneNumber, city, state } =
     props.generalInformation;
 
@@ -16,7 +16,7 @@ export default function GeneralInformation(props) {
         type="text"
         name="fullName"
         value={fullName}
-        onChange={(e) => handleChange(e)}
+        onChange={(e) => handleChangeGeneralInformation(e)}
       />
       <input
         className="formInput"
@@ -24,7 +24,7 @@ export default function GeneralInformation(props) {
         type="text"
         name="email"
         value={email}
-        onChange={(e) => handleChange(e)}
+        onChange={(e) => handleChangeGeneralInformation(e)}
       />
       <input
         className="formInput"
@@ -32,7 +32,7 @@ export default function GeneralInformation(props) {
         type="text"
         name="phoneNumber"
         value={phoneNumber}
-        onChange={(e) => handleChange(e)}
+        onChange={(e) => handleChangeGeneralInformation(e)}
       />
       <input
         className="formInput"
@@ -40,7 +40,7 @@ export default function GeneralInformation(props) {
         type="text"
         name="city"
         value={city}
-        onChange={(e) => handleChange(e)}
+        onChange={(e) => handleChangeGeneralInformation(e)}
       />
       <input
         className="formInput"
@@ -48,9 +48,8 @@ export default function GeneralInformation(props) {
         type="text"
         name="state"
         value={state}
-        onChange={handleChange}
+        onChange={handleChangeGeneralInformation}
       />
-      
     </fieldset>
   );
 }

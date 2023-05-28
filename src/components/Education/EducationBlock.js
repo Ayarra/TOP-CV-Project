@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function ExperienceBlock(props) {
-  const { handleChange, handleDeleteEducation, id } = props;
+  const { handleChangeEducation, handleDeleteEducation, id } = props;
   const {
     university,
     degree,
@@ -19,7 +19,7 @@ export default function ExperienceBlock(props) {
         type="text"
         name="university"
         value={university}
-        onChange={(e) => handleChange(e, id)}
+        onChange={(e) => handleChangeEducation(e, id)}
       />
       <input
         className="formInput"
@@ -27,7 +27,7 @@ export default function ExperienceBlock(props) {
         type="text"
         name="degree"
         value={degree}
-        onChange={(e) => handleChange(e, id)}
+        onChange={(e) => handleChangeEducation(e, id)}
       />
       <input
         className="formInput"
@@ -35,7 +35,7 @@ export default function ExperienceBlock(props) {
         type="text"
         name="major"
         value={major}
-        onChange={(e) => handleChange(e, id)}
+        onChange={(e) => handleChangeEducation(e, id)}
       />
       <input
         className="formInput"
@@ -43,7 +43,7 @@ export default function ExperienceBlock(props) {
         type="text"
         name="graduationMonth"
         value={graduationMonth}
-        onChange={(e) => handleChange(e, id)}
+        onChange={(e) => handleChangeEducation(e, id)}
       />
       <input
         className="formInput"
@@ -51,7 +51,7 @@ export default function ExperienceBlock(props) {
         type="text"
         name="graduationYear"
         value={graduationYear}
-        onChange={(e) => handleChange(e, id)}
+        onChange={(e) => handleChangeEducation(e, id)}
       />
       <textarea
         className="formInput formTextArea "
@@ -59,7 +59,7 @@ export default function ExperienceBlock(props) {
         type="text"
         name="achievements"
         value={achievements}
-        onChange={(e) => handleChange(e, id)}
+        onChange={(e) => handleChangeEducation(e, id)}
       />
       <button
         className="deleteButton"
