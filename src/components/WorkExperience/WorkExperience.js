@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import ExperienceBlock from "./ExperienceBlock";
 
 export default function WorkExperience(props) {
   const { workExperience, handleChange, setFormData } = props;
-
-  // const [experiences, setExperiences] = useState([]);
 
   let experiences = workExperience.map((experience) => (
     <ExperienceBlock
@@ -13,6 +11,7 @@ export default function WorkExperience(props) {
       experience={experience}
       handleChange={handleChange}
       handleDelete={handleDelete}
+      setFormData={setFormData}
     />
   ));
 
@@ -46,6 +45,7 @@ export default function WorkExperience(props) {
             endDate: "",
             position: "",
             location: "",
+            responsabilities: [],
           },
         ],
       };

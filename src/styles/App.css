@@ -5,7 +5,7 @@
 .toggleButton {
   background-color: #166ef1;
   padding: 20px;
-  width: 100px;
+  width: 80%;
   color: #ffffff;
   text-align: center;
   border: 4px double #cccccc;
@@ -47,6 +47,11 @@ button:hover {
   border: none;
   outline: none;
   border-bottom: 1px solid #aaa;
+}
+
+.formTextArea {
+  height: 100px;
+  resize: none;
 }
 
 .experienceBlock {

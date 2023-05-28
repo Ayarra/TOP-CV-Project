@@ -2,8 +2,14 @@ import React from "react";
 
 export default function ExperienceBlock(props) {
   const { handleChange, handleDelete, id } = props;
-  const { company, position, location, startingDate, endDate } =
-    props.experience;
+  const {
+    company,
+    position,
+    location,
+    startingDate,
+    endDate,
+    responsabilities,
+  } = props.experience;
 
   return (
     <div className="experienceBlock">
@@ -45,6 +51,14 @@ export default function ExperienceBlock(props) {
         type="text"
         name="endDate"
         value={endDate}
+        onChange={(e) => handleChange(e, id)}
+      />
+      <textarea
+        className="formInput formTextArea "
+        placeholder="Responsabilities"
+        type="text"
+        name="responsabilities"
+        value={responsabilities}
         onChange={(e) => handleChange(e, id)}
       />
       <button className="deleteButton" onClick={(e) => handleDelete(e, id)}>

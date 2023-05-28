@@ -1,9 +1,10 @@
 import React from "react";
+import Education from "./Education/Education";
 import GeneralInformation from "./GeneralInformation";
-import WorkExperience from "./WorkExperience";
+import WorkExperience from "./WorkExperience/WorkExperience";
 
 export default function CVEdit(props) {
-  const { generalInformation, workExperience } = props.formData;
+  const { generalInformation, workExperience, education } = props.formData;
 
   return (
     <form className="form">
@@ -13,6 +14,11 @@ export default function CVEdit(props) {
       />
       <WorkExperience
         workExperience={workExperience}
+        handleChange={props.handleChange}
+        setFormData={props.setFormData}
+      />
+      <Education
+        education={education}
         handleChange={props.handleChange}
         setFormData={props.setFormData}
       />

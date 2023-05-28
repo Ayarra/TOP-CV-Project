@@ -50,6 +50,7 @@ export default function GeneralInformation(props) {
         value={state}
         onChange={handleChange}
       />
+      
     </fieldset>
   );
 }

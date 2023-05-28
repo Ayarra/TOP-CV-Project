@@ -14,6 +14,7 @@ function App() {
       state: "",
     },
     workExperience: [],
+    education: [],
   });
 
   console.log(formData);
@@ -24,7 +25,6 @@ function App() {
 
   function handleChange(e, id) {
     const { name, value } = e.target;
-    console.log(id);
 
     setFormData((prevData) => {
       const newExperience = prevData.workExperience.map((experience) => {
@@ -35,6 +35,14 @@ function App() {
         }
       });
 
+      const newEducation = prevData.education.map((education) => {
+        if (education.id === id) {
+          return { ...education, [name]: value };
+        } else {
+          return education;
+        }
+      });
+
       return {
         ...prevData,
         generalInformation: {
@@ -42,6 +50,7 @@ function App() {
           [name]: value,
         },
         workExperience: [...newExperience],
+        education: [...newEducation],
       };
     });
   }
