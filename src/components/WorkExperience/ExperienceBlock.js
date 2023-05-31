@@ -1,3 +1,4 @@
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import React from "react";
 
 export default function ExperienceBlock(props) {
@@ -37,6 +38,14 @@ export default function ExperienceBlock(props) {
         value={location}
         onChange={(e) => handleChangeWorkExperience(e, id)}
       />
+      {/* <DatePicker
+        className="formInput"
+        label={"Starting Date"}
+        views={["month", "year"]}
+        name="startingDate"
+        value={startingDate}
+        onChange={(e) => handleChangeWorkExperience(e, id, "test")}
+      ></DatePicker> */}
       <input
         className="formInput"
         placeholder="Starting Date"

@@ -1,10 +1,12 @@
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import React, { useState } from "react";
 import CVEdit from "./components/CVEdit";
 import CVPreview from "./components/CVPreview";
 import "./styles/App.css";
 
-function App() {
-  const [mode, setMode] = useState(true);
+function App({ children }) {
+  // const [mode, setMode] = useState(true);
   const [formData, setFormData] = useState({
     generalInformation: {
       fullName: "",
@@ -19,11 +21,10 @@ function App() {
     interests: "",
   });
 
-  console.log(formData);
-  function handleMode(e) {
-    e.preventDefault();
-    setMode((prevState) => !prevState);
-  }
+  // function handleMode(e) {
+  //   e.preventDefault();
+  //   setMode((prevState) => !prevState);
+  // }
 
   function handleChangeGeneralInformation(e) {
     const { name, value } = e.target;
@@ -56,7 +57,6 @@ function App() {
   }
 
   function handleChangeEducation(e, id) {
-    console.log("he");
     const { name, value } = e.target;
     setFormData((prevData) => {
       const newEducation = prevData.education.map((education) => {
@@ -73,26 +73,25 @@ function App() {
     });
   }
 
-  function handleChange(e, id) {
+  function handleChange(e) {
     const { name, value } = e.target;
 
     setFormData((prevData) => {
       return {
         ...prevData,
-
         [name]: value,
-        // interests: value,
       };
     });
   }
 
   return (
-    <div className="container">
-      <button className="toggleButton" onClick={handleMode}>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <div className="container">
+        {/* <button className="toggleButton" onClick={handleMode}>
         Toggle {mode ? "Preview" : "Edit"}
-      </button>
+      </button> */}
 
-      {mode ? (
+        {/* {mode ? ( */}
         <CVEdit
           formData={formData}
           handleChange={handleChange}
@@ -101,10 +100,11 @@ function App() {
           handleChangeEducation={handleChangeEducation}
           setFormData={setFormData}
         />
-      ) : (
+        {/* ) : ( */}
         <CVPreview formData={formData} />
-      )}
-    </div>
+        {/* )} */}
+      </div>
+    </LocalizationProvider>
   );
 }
 
